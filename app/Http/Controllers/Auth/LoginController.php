@@ -36,4 +36,13 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    /**
+     * Overriding default username field, doesnt make much sense to use email
+     *
+     */
+    public function username()
+    {
+        return 'name';
+    }
 }
