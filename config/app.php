@@ -152,6 +152,7 @@ return [
          */
 
          Webklex\IMAP\Providers\LaravelServiceProvider::class,
+         Collective\Html\HtmlServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -212,6 +213,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Client' => Webklex\IMAP\Facades\Client::class,
+
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 

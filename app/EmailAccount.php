@@ -12,7 +12,8 @@ class EmailAccount extends Model
      * @var array
      */
     protected $fillable = [
-        'name'
+        'name',
+        'user_id',
         'username',
         'password',
         'host',
