@@ -16,6 +16,9 @@ class CreateEmailAccountsTable extends Migration
         Schema::create('email_accounts', function (Blueprint $table) {
             $table->increments('id');
 
+            $table->string('name');
+            $table->integer('user_id');
+
             $table->string('username');
             $table->string('password');
             $table->string('host');

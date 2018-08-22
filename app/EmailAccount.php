@@ -12,6 +12,7 @@ class EmailAccount extends Model
      * @var array
      */
     protected $fillable = [
+        'name'
         'username',
         'password',
         'host',
@@ -19,4 +20,11 @@ class EmailAccount extends Model
         'encryption',
         'protocol'
     ];
+
+    // Relations ---------------------------------------------------------------
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
