@@ -101,7 +101,7 @@ return [
     |
     */
     'options' => [
-        'delimiter' => '/',
+        'delimiter' => '.',
         'fetch' => FT_UID,
         'fetch_body' => true,
         'fetch_attachment' => true,

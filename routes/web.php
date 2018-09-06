@@ -19,4 +19,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 Route::resource('emailaccounts', 'EmailAccountsController');
+
+Route::get('emailaccounts/view/{id}', [
+    'as' => 'emailaccounts.view',
+    'uses' => 'EmailAccountsController@view'
+]);
+
+Route::get('emailaccounts/delete/{id}', [
+    'as' => 'emailaccounts.delete',
+    'uses' => 'EmailAccountsController@delete'
+]);
