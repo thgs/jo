@@ -2,7 +2,7 @@
 
 namespace Jo\Resources\Repos;
 
-use App\EmailAccount;
+use App\Models\EmailAccount;
 use Jo\Abstracts\AbstractRepository;
 
 class EmailAccountsRepo extends AbstractRepository
