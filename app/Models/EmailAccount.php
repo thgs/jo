@@ -22,6 +22,7 @@ class EmailAccount extends Model
         'protocol',
 
         'sync_every',
+        'inbound_repository',
     ];
 
     // Relations ---------------------------------------------------------------

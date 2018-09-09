@@ -30,6 +30,9 @@ class CreateEmailAccountsTable extends Migration
             // Settings
             $table->integer('sync_every')->default(15);
 
+            // Drivers
+            $table->string('inbound_repository');
+
             $table->timestamps();
         });
     }
