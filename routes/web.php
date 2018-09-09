@@ -31,3 +31,11 @@ Route::get('emailaccounts/delete/{id}', [
     'as' => 'emailaccounts.delete',
     'uses' => 'EmailAccountsController@delete'
 ]);
+
+
+Route::resource('feeds', 'FeedsController');
+
+Route::get('feeds/delete/{id}', [
+    'as' => 'feeds.delete',
+    'uses' => 'FeedsController@delete'
+]);
