@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Webklex\IMAP\Client;
 use Illuminate\Http\Request;
 use Jo\Resources\RController;
+use Jo\Resources\Repos\ImapRepository;
 use Jo\Resources\Repos\EmailAccountsRepo;
 
 class EmailAccountsController extends RController
@@ -35,38 +35,12 @@ class EmailAccountsController extends RController
     {
         $emailAccount = $this->repo->findOrFail($id);
 
-        // get client instance
-        $client = new Client([
-            'host'          => $emailAccount->host,
-            'port'          => $emailAccount->port,
-            'encryption'    => $emailAccount->encryption,
-            'validate_cert' => true,
-            'username'      => $emailAccount->username,
-            'password'      => $emailAccount->password,
-            'protocol'      => $emailAccount->protocol,
-        ]);
-
-        //Connect to the IMAP Server
-        $client->connect();
-
-        //Get all Mailboxes
-        /** @var \Webklex\IMAP\Support\FolderCollection $aFolder */
-        $folders = $client->getFolders(true);
-
-        // get inbox messages
-        $inbox = $client->getFolder('INBOX');
-        $messages = $client->getUnseenMessages(
-            $inbox,
-            'unseen',
-            false,
-            false,
-            true
-        );
+        $imapRepo = new ImapRepository($emailAccount);
 
         return view('emailaccounts.view', [
             'account' => $emailAccount,
-            'folders' => $folders,
-            'messages' => $messages,
+            'folders' => $imapRepo->getFolders(),
+            'messages' => $imapRepo->getUnseenMessages(),
         ]);
     }
 
