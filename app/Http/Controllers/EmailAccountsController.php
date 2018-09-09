@@ -55,14 +55,13 @@ class EmailAccountsController extends RController
 
         // get inbox messages
         $inbox = $client->getFolder('INBOX');
-        $messages = $inbox->query()
-            ->whereAll()
-            ->setFetchFlags(false)
-            ->setFetchBody(false)
-            ->setFetchAttachment(false)
-            ->limit(20, 1)
-            ->get();
-
+        $messages = $client->getUnseenMessages(
+            $inbox,
+            'unseen',
+            false,
+            false,
+            true
+        );
 
         return view('emailaccounts.view', [
             'account' => $emailAccount,
