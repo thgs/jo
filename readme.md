@@ -1,7 +1,6 @@
-Built using
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 
+<img src="https://raw.githubusercontent.com/thgs/jo/master/public/logo.png">
 
 ## About Jo
 
@@ -15,3 +14,7 @@ As of now, all Laravel requirements, plus php-imap extension
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 So is Jo.
+
+
+Built using
+<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
