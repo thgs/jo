@@ -31,7 +31,7 @@
                         </td>
                         <td>
                             <a href="{{ route('feeds.show', $f->id) }}">show</a>
-                            <a href="#">force-update</a>
+                            <a href="{{ route('feeds.refresh', $f->id)}}">refresh</a>
                             <a href="{{ route('feeds.edit', $f->id) }}">edit</a>
                             <a href="{{ route('feeds.delete', $f->id) }}">delete</a>
                         </td>

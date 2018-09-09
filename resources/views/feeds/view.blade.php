@@ -1,58 +1,27 @@
-@extends('layouts.mailview')
+@extends('layouts.container')
 
-@section('side')
+@section('container')
 
-    <div class="card">
-        <div class="card-header">{{ $account->name }}</div>
 
-        <div class="card-body">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">View / Feed / {{ $feed->name }}</div>
 
-            @foreach ($folders as $folder)
-                {{ $folder->name }}<br />
-            @endforeach
+            <div class="card-body">
 
-        </div>
-    </div>
-
-@endsection
-
-@section('body')
-
-    <div class="card">
-        <div class="card-header">FOLDER NAME</div>
-
-        <div class="card-body">
-
-            <table class="table">
+                <table class="table">
+                @foreach ($items as $i)
                 <tr>
-                    <th>UID</th>
-                    <th>From</th>
-                    <th>Received</th>
-                    <th>Size</th>
+                    <td><h2><a href="{{ $i->link }}">{{ $i->title }}</a></h2></td>
                 </tr>
-            @foreach ($messages as $m)
-            <tr>
-                <td>
-                    {{ $m->getUid() }}
-                    {{-- @php(dump( $m->getUid() )) --}}
-                </td>
-                <td>
-                    {{ $m->getFrom()[0]->full }}
-                    {{-- @php(dump( $m->getFrom() )) --}}
-                    <br />
-                    <small>
-                        {{ imap_utf8( $m->getSubject() ) }}
-                        {{-- @php(dump( $m->getSubject() )) --}}
-                    </small>
-                </td>
-                <td>
-                    {{ $m->getDate() }}
-                    {{-- @php(dump( $m->getDate() )) --}}
-                </td>
-                <td>-</td>
-            </tr>
-            @endforeach
+                <tr>
+                    <td>
+                        {!! $i->body !!}
+                    </td>
+                </tr>
+                @endforeach
 
+            </div>
         </div>
     </div>
 
