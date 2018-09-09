@@ -19,7 +19,9 @@ class EmailAccount extends Model
         'host',
         'port',
         'encryption',
-        'protocol'
+        'protocol',
+
+        'sync_every',
     ];
 
     // Relations ---------------------------------------------------------------

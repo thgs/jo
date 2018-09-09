@@ -19,12 +19,16 @@ class CreateEmailAccountsTable extends Migration
             $table->string('name');
             $table->integer('user_id');
 
+            // Email
             $table->string('username');
             $table->string('password');
             $table->string('host');
             $table->string('port');
             $table->string('encryption');
             $table->string('protocol');
+
+            // Settings
+            $table->integer('sync_every')->default(15);
 
             $table->timestamps();
         });
