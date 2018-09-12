@@ -34,12 +34,16 @@
                         <tr>
                             <th>Account name</th>
                             <th>Server</th>
+                            <th>Last Sync</th>
+                            <th>Sync Every (mins)</th>
                             <th>&nbsp;</th>
                         </tr>
                     @foreach ($emailAccounts as $account)
                     <tr>
                         <td>{{ $account->name }}</td>
                         <td>{{ $account->host }}</td>
+                        <td>{{ $account->updated_at }}</td>
+                        <td>{{ $account->sync_every }}</td>
                         <td>
                             <a href="{{ route('emailaccounts.view', $account->id) }}" class="col-sm-2">View</a>
                             <a href="{{ route('emailaccounts.edit', $account->id) }}" class="col-sm-2">Settings</a>
