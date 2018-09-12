@@ -22,5 +22,7 @@ class Email extends Model
         'body',
         'flags',
         'priority',
+
+        'email_account_id',
     ];
 }

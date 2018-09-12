@@ -27,6 +27,8 @@ class CreateEmailsTable extends Migration
             $table->string('flags');
             $table->string('priority');
 
+            $table->integer('email_account_id');
+
             $table->timestamps();
         });
     }
