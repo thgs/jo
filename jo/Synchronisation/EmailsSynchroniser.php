@@ -30,7 +30,7 @@ class EmailsSynchroniser
 
             // let's not handle real synchronisation, for now it will be
             // okay, just store the unseen
-            $this->emailsRepo->storeBulkFromImap($newMessages);
+            $this->emailsRepo->storeBulkFromImap($newMessages, $account->id);
 
             // update the account, saying we have synced
             $account->touch();
