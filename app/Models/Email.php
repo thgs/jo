@@ -13,6 +13,7 @@ class Email extends Model
      */
     protected $fillable = [
         'uid',
+        'mailbox',
         'from',
         'cc',
         'bcc',

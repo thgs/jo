@@ -17,6 +17,7 @@ class CreateEmailsTable extends Migration
             $table->bigIncrements('id');
 
             $table->string('uid')->nullable();
+            $table->string('mailbox');
             $table->string('from');
             $table->string('cc');
             $table->string('bcc');
