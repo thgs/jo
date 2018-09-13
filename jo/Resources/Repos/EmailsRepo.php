@@ -20,7 +20,7 @@ class EmailsRepo extends AbstractRepository
 
             $data = [
                 'uid'       => $m->getUid(),
-                'mailbox'   => $m->getFolder()->name,
+                'mailbox'   => $m->getContainingFolder()->name,
                 'from'      => $m->getFrom(),
                 'cc'        => $m->getCc(),
                 'bcc'       => $m->getBcc(),
