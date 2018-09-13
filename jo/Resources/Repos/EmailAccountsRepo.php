@@ -26,4 +26,12 @@ class EmailAccountsRepo extends AbstractRepository
         // return the model
         return $this->model->create($data);
     }
+
+    public function getAccountsToSync()
+    {
+        // need to find which accounts need sync here, for now, we just
+        // can return everything
+        return $this->all();
+    }
+
 }
