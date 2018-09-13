@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Email;
 use Illuminate\Http\Request;
 use Jo\Resources\RController;
 use Jo\Resources\Repos\ImapRepository;
@@ -9,6 +10,8 @@ use Jo\Resources\Repos\EmailAccountsRepo;
 
 class EmailAccountsController extends RController
 {
+    protected $emailsRepo;
+
     public function __construct(EmailAccountsRepo $repo)
     {
         $this->setRepo($repo);
@@ -37,10 +40,16 @@ class EmailAccountsController extends RController
 
         $imapRepo = new ImapRepository($emailAccount);
 
-        return view('emailaccounts.view', [
+        // old code
+        //$messages = $imapRepo->getUnseenMessages();
+
+        // retrieving messages from db..
+        $messages = Email::where('mailbox', 'INBOX')->get();
+
+        return view('emailaccounts.view_from_model', [
             'account' => $emailAccount,
             'folders' => $imapRepo->getFolders(),
-            'messages' => $imapRepo->getUnseenMessages(),
+            'messages' => $messages,
         ]);
     }
 
