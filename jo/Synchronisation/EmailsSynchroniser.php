@@ -4,6 +4,7 @@ namespace Jo\Synchronisation;
 
 use Jo\Resources\Repos\EmailsRepo;
 use Jo\Resources\Repos\ImapRepository;
+use Jo\Resources\Repos\EmailAccountsRepo;
 
 class EmailsSynchroniser
 {
