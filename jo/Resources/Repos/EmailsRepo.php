@@ -11,4 +11,33 @@ class EmailsRepo extends AbstractRepository
     {
         parent::__construct($model);
     }
+
+    public function storeBulkFromImap($messages, $emailAccountId)
+    {
+        $models = [];
+        foreach ($messages as $m)
+        {
+
+            $data = [
+                'uid'       => $m->getUid(),
+                'from'      => $m->getFrom(),
+                'cc'        => $m->getCc(),
+                'bcc'       => $m->getBcc(),
+                'to'        => $m->getTo(),
+                'reply_to'  => $m->getReplyTo(),
+                'subject'   => $m->getSubject(),
+                'body'      => $m->hasHTMLBody()
+                                ? $m->getHTMLBody()
+                                : $m->getTextBody(),
+                'flags'     => $m->getFlags(),
+                'priority'  => $m->getPriority(),
+
+                'email_account_id' => $emailAccountId,
+            ];
+
+            $models[] = $this->create($data);
+        }
+
+        return $models;
+    }
 }
