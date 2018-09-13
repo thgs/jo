@@ -31,7 +31,7 @@ class CreateEmailAccountsTable extends Migration
             $table->integer('sync_every')->default(15);
 
             // Drivers
-            $table->string('inbound_repository');
+            $table->string('inbound_repository')->nullable();
 
             $table->timestamps();
         });
