@@ -16,7 +16,7 @@
                 </tr>
                 <tr>
                     <td>
-                        {!! $i->body !!}
+                        {{ substr(strip_tags($i->body), 0, 150) }}
                     </td>
                 </tr>
                 @endforeach
