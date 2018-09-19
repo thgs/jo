@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+use App\Models\Feed;
+use App\Models\Email;
 use App\Models\EmailAccount;
 use Illuminate\Http\Request;
 
@@ -25,7 +28,10 @@ class HomeController extends Controller
     public function index()
     {
         return view('home', [
-            'emailAccounts' => EmailAccount::all()
+            'feeds' => Feed::all(),
+            'postsCount' => Post::all()->count(),
+            'emailAccounts' => EmailAccount::all(),
+            'emailsCount' => Email::all()->count(),
         ]);
     }
 }
