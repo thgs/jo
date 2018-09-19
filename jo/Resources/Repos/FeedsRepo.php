@@ -26,4 +26,9 @@ class FeedsRepo extends AbstractRepository
         // return the model
         return $this->model->create($data);
     }
+
+    public function getFeedsToSync()
+    {
+        return $this->model->all();
+    }
 }

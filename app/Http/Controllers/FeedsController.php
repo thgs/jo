@@ -65,36 +65,11 @@ class FeedsController extends RController
      */
     public function refresh($id)
     {
-        // replace zend-http with guzzle
-        \Zend\Feed\Reader\Reader::setHttpClient(new GuzzleClient());
-
         $feed = $this->repo->findOrFail($id);
-
-        $data = \Zend\Feed\Reader\Reader::import($feed->url);
-
-        $items = [];
-        $models = [];
-        foreach ($data as $item)
-        {
-            $items[] = [
-                'title' => $item->getTitle(),
-                'link' => $item->getLink(),
-                'description' => $item->getDescription(),
-                'author' => $item->getAuthor(),
-                //'category' => optional($item->getCategory()),
-                //'pubDate' => $item->getPubDate(),
-            ];
-
-            $models[] = (new \App\Models\Post)->fill([
-                'title' => $item->getTitle(),
-                'body' => $item->getDescription(),
-                'link' => $item->getLink(),
-            ]);
-        }
 
         return view('feeds.view', [
             'feed' => $feed,
-            'items' => collect($models)
+            'items' => $feed->posts
         ]);
 
     }

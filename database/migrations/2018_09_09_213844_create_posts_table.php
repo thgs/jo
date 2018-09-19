@@ -22,7 +22,11 @@ class CreatePostsTable extends Migration
             $table->text('body');
             $table->string('link');
 
+            $table->string('post_uid')->unique();
+
             $table->timestamps();
+
+            $table->unique(['feed_id', 'post_uid']);
         });
     }
 

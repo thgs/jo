@@ -17,4 +17,11 @@ class Feed extends Model
         'update_every',
         'user_id',
     ];
+
+    // Relations
+
+    public function posts()
+    {
+        return $this->hasMany('App\Models\Post');
+    }
 }

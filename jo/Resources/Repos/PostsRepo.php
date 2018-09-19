@@ -12,10 +12,16 @@ class PostsRepo extends AbstractRepository
         parent::__construct($model);
     }
 
-
     public function create($data)
     {
-        // return the model
-        return $this->model->create($data);
+        // create function here checks whether there is
+        // another post_uid in the given feed
+        $found = $this->model->where([
+            'post_uid' => $data['post_uid'],
+            'feed_id' => $data['feed_id']
+        ])->first();
+
+        // return the model if not found already
+        return ($found) ? $found : $this->model->create($data);
     }
 }

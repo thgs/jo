@@ -30,6 +30,11 @@ class Kernel extends ConsoleKernel
         $schedule->command('emails:sync')
             ->everyFifteenMinutes()
             ->withoutOverlapping();
+
+        $schedule->command('feeds:sync')
+            ->everyFiveMinutes()
+            ->withoutOverlapping();
+
     }
 
     /**

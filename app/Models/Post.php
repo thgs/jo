@@ -15,5 +15,7 @@ class Post extends Model
         'title',
         'body',
         'link',
+        'feed_id',
+        'post_uid',
     ];
 }
