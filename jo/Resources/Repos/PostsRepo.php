@@ -21,7 +21,9 @@ class PostsRepo extends AbstractRepository
             'feed_id' => $data['feed_id']
         ])->first();
 
+        // now what happens in the case post_uid is empty ?
+
         // return the model if not found already
-        return ($found) ? $found : $this->model->create($data);
+        return ($found) ? false : $this->model->create($data);
     }
 }

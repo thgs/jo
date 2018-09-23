@@ -48,6 +48,13 @@ class SyncFeed extends Command
      */
     public function handle()
     {
-        $this->syncEngine->syncAll();
+        // we sync
+        $synced = $this->syncEngine->syncAll();
+
+        // todo a progress bar would be cool
+
+        // and display
+        $headers = ['ID', 'Feed name', 'New Entries', 'Updated Time'];
+        $this->table($headers, $synced);
     }
 }
