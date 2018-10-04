@@ -4,8 +4,67 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c32513cd3a5750ae2af3d6a616bfe798",
+    "content-hash": "2465f918e9985ed632505fd8c1530f47",
     "packages": [
+        {
+            "name": "ddeboer/imap",
+            "version": "1.5.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ddeboer/imap.git",
+                "reference": "acf56f54375babb27a245338a13f4e8246975268"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ddeboer/imap/zipball/acf56f54375babb27a245338a13f4e8246975268",
+                "reference": "acf56f54375babb27a245338a13f4e8246975268",
+                "shasum": ""
+            },
+            "require": {
+                "ext-iconv": "*",
+                "ext-imap": "*",
+                "ext-mbstring": "*",
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.10",
+                "phpstan/phpstan": "^0.9.1",
+                "phpstan/phpstan-phpunit": "^0.9.3",
+                "phpunit/phpunit": "^6.5 || ^7.0",
+                "zendframework/zend-mail": "^2.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ddeboer\\Imap\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David de Boer",
+                    "email": "david@ddeboer.nl"
+                },
+                {
+                    "name": "Community contributors",
+                    "homepage": "https://github.com/ddeboer/imap/graphs/contributors"
+                },
+                {
+                    "name": "Filippo Tessarotto",
+                    "email": "zoeslam@gmail.com"
+                }
+            ],
+            "description": "Object-oriented IMAP for PHP",
+            "keywords": [
+                "email",
+                "imap",
+                "mail"
+            ],
+            "time": "2018-08-21T07:30:59+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
@@ -1216,6 +1275,58 @@
             "time": "2018-07-02T15:55:56+00:00"
         },
         {
+            "name": "php-imap/php-imap",
+            "version": "3.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/barbushin/php-imap.git",
+                "reference": "d4f8ef4504dfb555857241aa7d1e414a1c229079"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barbushin/php-imap/zipball/d4f8ef4504dfb555857241aa7d1e414a1c229079",
+                "reference": "d4f8ef4504dfb555857241aa7d1e414a1c229079",
+                "shasum": ""
+            },
+            "require": {
+                "ext-imap": "*",
+                "php": ">=5.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PhpImap\\": "src/PhpImap"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sergey Barbushin",
+                    "email": "barbushin@gmail.com",
+                    "homepage": "http://linkedin.com/in/barbushin"
+                }
+            ],
+            "description": "Manage mailboxes, filter/get/delete emails in PHP (supports IMAP/POP3/NNTP)",
+            "homepage": "https://github.com/barbushin/php-imap",
+            "keywords": [
+                "imap",
+                "mail",
+                "mailbox",
+                "php",
+                "pop3",
+                "receive emails"
+            ],
+            "time": "2017-12-22T12:53:34+00:00"
+        },
+        {
             "name": "psr/container",
             "version": "1.0.0",
             "source": {
@@ -1564,6 +1675,123 @@
                 "uuid"
             ],
             "time": "2018-07-19T23:38:55+00:00"
+        },
+        {
+            "name": "ssilence/php-imap-client",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SSilence/php-imap-client.git",
+                "reference": "90c083d4476366e2395a92a559bf389b5b04d035"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SSilence/php-imap-client/zipball/90c083d4476366e2395a92a559bf389b5b04d035",
+                "reference": "90c083d4476366e2395a92a559bf389b5b04d035",
+                "shasum": ""
+            },
+            "require": {
+                "ext-imap": "*",
+                "php": ">=5.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SSilence\\ImapClient\\": "ImapClient"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "SSilence",
+                    "email": "tobias.zeising@aditu.de",
+                    "homepage": "https://github.com/SSilence",
+                    "role": "Founder"
+                },
+                {
+                    "name": "xXXIMMATTEWXXx",
+                    "email": "mattparksjr@gmail.com",
+                    "homepage": "http://matthewp.lexium.xyz/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "sergey144010",
+                    "homepage": "https://github.com/sergey144010",
+                    "role": "Developer"
+                },
+                {
+                    "name": "natanfelles",
+                    "email": "natanfelles@gmail.com",
+                    "homepage": "https://natanfelles.github.io",
+                    "role": "Developer"
+                },
+                {
+                    "name": "developarts",
+                    "email": "nexus@developarts.com",
+                    "homepage": "http://www.developarts.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "dutchakdev",
+                    "email": "dutchakdev@gmail.com",
+                    "homepage": "http://dutchak.io/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "HenriqueSalvan",
+                    "email": "henriquesalvan@gmail.com",
+                    "homepage": "https://github.com/HenriqueSalvan",
+                    "role": "Developer"
+                },
+                {
+                    "name": "melcak",
+                    "email": "jiri@plugo.cz",
+                    "homepage": "http://www.plugo.cz",
+                    "role": "Developer"
+                },
+                {
+                    "name": "fulldecent",
+                    "email": "github.com@phor.net",
+                    "homepage": "http://phor.net",
+                    "role": "Developer"
+                },
+                {
+                    "name": "parturi",
+                    "homepage": "https://github.com/parturi",
+                    "role": "Developer"
+                },
+                {
+                    "name": "tomjoad2000",
+                    "homepage": "https://github.com/tomjoad2000",
+                    "role": "Developer"
+                },
+                {
+                    "name": "radub",
+                    "homepage": "https://github.com/radub",
+                    "role": "Developer"
+                },
+                {
+                    "name": "russ-ab",
+                    "homepage": "https://github.com/russ-ab",
+                    "role": "Developer"
+                },
+                {
+                    "name": "wayne5w",
+                    "homepage": "https://github.com/wayne5w",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Php imap client",
+            "homepage": "https://github.com/SSilence/php-imap-client",
+            "keywords": [
+                "client",
+                "imap",
+                "php"
+            ],
+            "time": "2018-09-04T15:49:43+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2495,6 +2723,55 @@
                 "dump"
             ],
             "time": "2018-07-26T11:24:31+00:00"
+        },
+        {
+            "name": "tedivm/fetch",
+            "version": "v0.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tedious/Fetch.git",
+                "reference": "ea3f1bbde6bd6388488105240640642dc82c06a6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tedious/Fetch/zipball/ea3f1bbde6bd6388488105240640642dc82c06a6",
+                "reference": "ea3f1bbde6bd6388488105240640642dc82c06a6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-imap": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "0.5.*",
+                "phpunit/phpunit": "4.2.*",
+                "satooshi/php-coveralls": "dev-master",
+                "tedivm/dovecottesting": "1.2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Fetch": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Robert Hafner",
+                    "email": "tedivm@tedivm.com"
+                }
+            ],
+            "description": "A PHP IMAP Library",
+            "homepage": "http://github.com/tedious/Fetch",
+            "keywords": [
+                "email",
+                "imap",
+                "pop3"
+            ],
+            "time": "2015-08-02T03:38:12+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -4623,7 +4900,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "ssilence/php-imap-client": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
