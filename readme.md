@@ -7,7 +7,7 @@
 Jo is meant to be an email client and RSS reader built using the Laravel framework. 
 It is still under heavy development and not yet fully functional.
 
-## What you should be able to do with it
+### What you should be able to do with it
 
 * Sync with your IMAP email and store it in a database
 * Sync feeds into a database as well
