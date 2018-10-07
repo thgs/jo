@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/settings', 'SettingsController@index')->name('settings.index');
+Route::post('/settings', 'SettingsController@save')->name('settings.store');
 
 Route::resource('emailaccounts', 'EmailAccountsController');
 

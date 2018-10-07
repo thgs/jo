@@ -50,6 +50,10 @@
                             </li>
                         @else
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ route('settings.index') }}">{{ __('Settings') }}</a>
+                            </li>
+
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('emailaccounts.create') }}">{{ __('Add new email account') }}</a>
                             </li>
 

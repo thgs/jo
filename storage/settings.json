@@ -1,0 +1,5 @@
+{
+    "emails_per_page": 10,
+    "emails_strip_html": true,
+    "settings_editing_on_json": true
+}
