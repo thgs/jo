@@ -3,12 +3,15 @@
 @section('side')
 
     <div class="card">
-        <div class="card-header">{{ $account->name }}</div>
+        <div class="card-header">
+            <small>Account Name</small>
+            <b>{{ $account->name }}</b>            
+        </div>
 
         <div class="card-body">
 
-            @foreach ($folders as $folder)
-                {{ $folder->name }}<br />
+            @foreach ($folders as $folderName => $folder)
+                {{ $folderName }}<br />
             @endforeach
 
         </div>
@@ -27,7 +30,7 @@
                 <tr>
                     <th>UID</th>
                     <th>From</th>
-                    <th>Received</th>
+                    <th>Stored at</th>
                     <th>Size</th>
                 </tr>
             @foreach ($messages as $m)
@@ -46,10 +49,12 @@
                     </small>
                 </td>
                 <td>
-                    {{ $m->date }}
+                    {{ $m->created_at->format('H:i:s d/m/y') }}
                     {{-- @php(dump( $m->getDate() )) --}}
                 </td>
-                <td>-</td>
+                <td>
+                    {{ $m->getSize() }}
+                </td>
             </tr>
             <tr>
                 <td colspan="3">
