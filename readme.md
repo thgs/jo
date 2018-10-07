@@ -8,7 +8,7 @@ Jo is an email client and RSS reader built using the Laravel framework 5.6. Its 
 
 ## Requirements
 
-As of now, all Laravel requirements, plus php-imap extension
+As of now, all Laravel requirements, plus php-imap and bcmath extensions
 
 ## License
 

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Jo\Extras\HumanByte;
 use Illuminate\Database\Eloquent\Model;
 
 class Email extends Model
@@ -26,4 +27,9 @@ class Email extends Model
 
         'email_account_id',
     ];
+
+    public function getSize()
+    {
+        return (new HumanByte(strlen($this->body)))->getHumanSize();
+    }
 }
