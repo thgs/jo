@@ -3,6 +3,7 @@
 namespace Jo\IMAP\Drivers;
 
 use App\Models\EmailAccount;
+use Ddeboer\Imap\Exception\AuthenticationFailedException;
 
 abstract class BaseDriver
 {
@@ -12,13 +13,18 @@ abstract class BaseDriver
 
     protected $connectionStatus;
 
+    protected $error;
+
     public function __construct(EmailAccount $account)
     {
         $this->account = $account;
 
         $this->boot();
-
-        $this->connectionStatus = $this->connect();
+        try {
+            $this->connectionStatus = $this->connect();
+        } catch (AuthenticationFailedException $e) {
+            $this->error = $e->getMessage();
+        }
     }
 
     abstract public function boot();

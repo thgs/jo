@@ -4,7 +4,7 @@ namespace Jo\IMAP\Drivers;
 
 use PhpImap\Mailbox;
 
-class PhpImapDriver extends BaseDriver implements JoImapDriver
+class PhpImap extends BaseDriver implements JoImapDriver
 {
 	public function boot()
 	{
@@ -14,13 +14,20 @@ class PhpImapDriver extends BaseDriver implements JoImapDriver
 				$this->account->username,
 				$this->account->password,
 				storage_path()		// save attachments dir
-			);
+			)
 		);
+	}
+
+	public function connect()
+	{
+		return $this->client;
 	}
 
 	public function getFolders()
 	{
-		$this->client->getListingFolders();
+		dd(
+		$this->client->getListingFolders()
+		);
 	}
 
 	public function getUnseenMessages($folder = 'INBOX', $criteria = 'unseen')

@@ -1,5 +1,7 @@
 <?php
 
+namespace Jo\IMAP\Drivers;
+
 use Webklex\IMAP\Client;
 use Jo\IMAP\Drivers\JoImapDriver;
 
@@ -20,6 +22,7 @@ class Webklex extends BaseDriver implements JoImapDriver
 
 	public function getFolders()
 	{
+        dd($this->client->getFolders());
 		//Get all Mailboxes
         /** @var \Webklex\IMAP\Support\FolderCollection $aFolder */
         return $this->client->getFolders(true);

@@ -5,36 +5,45 @@ namespace Jo\IMAP\Drivers;
 use Ddeboer\Imap\Server;
 use Ddeboer\Imap\SearchExpression;
 use Ddeboer\Imap\Search\State\NewMessage;
+use Jo\IMAP\Data\FoldersList;
 
 class Ddeboer extends BaseDriver implements JoImapDriver
 {
 	protected $server;
 
-	protected $connection;
-
 	public $defaultParams = null;
 
 	public function boot()
 	{
+
 		$this->server = new Server(
-    		$this->account->host, // required
-    		$this->account->port,     // defaults to '993'
-    		true,    // defaults to '/imap/ssl/validate-cert'
-    		$this->defaultParams	// as https://secure.php.net/manual/en/function.imap-open.php
+    		$this->account->host, 	// required
+			$this->account->port     // defaults to '993'
 		);
 
+		/*
+    		true,    // defaults to '/imap/ssl/validate-cert'
+    		[]	// as https://secure.php.net/manual/en/function.imap-open.php
+		);
+		*/
+		
 		// here we will set the client to be what Ddeboer says connection
 		$this->setClient(
 			$this->server->authenticate(
 				$this->account->username, 
 				$this->account->password
-			);
+			)
 		);
+	}
+
+	public function connect()
+	{
+		return $this->client;
 	}
 
 	public function getFolders()
 	{
-		return $this->client->getMailboxes();
+		return new FoldersList($this->client->getMailboxes());
 	}
 
 	public function getUnseenMessages($folder = 'INBOX', $criteria = 'unseen')
