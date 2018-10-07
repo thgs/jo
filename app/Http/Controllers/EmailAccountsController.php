@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Email;
 use Illuminate\Http\Request;
 use Jo\Resources\RController;
-use Jo\Resources\Repos\ImapRepository;
+use Jo\IMAP\ImapRepository;
 use Jo\Resources\Repos\EmailAccountsRepo;
 
 class EmailAccountsController extends RController
