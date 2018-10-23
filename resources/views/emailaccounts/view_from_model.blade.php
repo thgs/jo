@@ -28,37 +28,28 @@
 
             <table class="table">
                 <tr>
-                    <th>UID</th>
-                    <th>From</th>
+                    <th>Subject / From</th>
                     <th>Stored at</th>
-                    <th>Size</th>
                 </tr>
             @foreach ($messages as $m)
             <tr>
-                <td>
-                    {{ $m->uid }}
-                    {{-- @php(dump( $m->getUid() )) --}}
-                </td>
-                <td>
-                    {{ $m->from }}
-                    {{-- @php(dump( $m->getFrom() )) --}}
-                    <br />
-                    <small>
-                        {{ imap_utf8( $m->subject ) }}
-                        {{-- @php(dump( $m->getSubject() )) --}}
+                <td class="col-md-6 text-primary">
+                    <h5>
+                        {!! wordwrap(imap_utf8( $m->subject ), 50, '<br />', true) !!}
+                    </h5>
+                    {{-- @php(dump( $m->getSubject() )) --}}
+                    <small class="text-danger">
+                        {{ $m->from }}
+                        {{-- @php(dump( $m->getFrom() )) --}} 
+                        |
+                        UID: {{ $m->uid }}
+                        |
+                        Size: {{ $m->getSize() }}
                     </small>
                 </td>
                 <td>
                     {{ $m->created_at->format('H:i:s d/m/y') }}
                     {{-- @php(dump( $m->getDate() )) --}}
-                </td>
-                <td>
-                    {{ $m->getSize() }}
-                </td>
-            </tr>
-            <tr>
-                <td colspan="3">
-                    {!! $m->body !!}
                 </td>
             </tr>
             @endforeach
