@@ -35,7 +35,9 @@
             <tr>
                 <td class="col-md-6 text-primary">
                     <h5>
-                        {!! wordwrap(imap_utf8( $m->subject ), 50, '<br />', true) !!}
+                        <a href="{{ route('emails.show', $m->id) }}">
+                            {!! wordwrap(imap_utf8( $m->subject ), 50, '<br />', true) !!}
+                        </a>
                     </h5>
                     {{-- @php(dump( $m->getSubject() )) --}}
                     <small class="text-danger">
