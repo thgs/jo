@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container-fluid">
-    <div class="row">
+    <div class="row border-bottom bg-white">
         <div class="col-md-3">
             @yield('topbar-side')
         </div>
